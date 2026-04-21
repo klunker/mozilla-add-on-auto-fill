@@ -37,13 +37,11 @@ function showToast(message: string, isError = false) {
 }
 
 async function fillForm() {
-  console.log('[AutoFill Pro] Starting form fill...');
+
   try {
     const { fields } = await getStorageData();
     const inputs = document.querySelectorAll('input, textarea, select');
     let filledCount = 0;
-
-    console.log(`[AutoFill Pro] Found ${inputs.length} inputs. Active fields from storage:`, fields.length);
 
     inputs.forEach((element) => {
       const input = element as HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement;
@@ -53,7 +51,6 @@ async function fillForm() {
 
       // Skip if already has value (disable this for testing if needed)
       if (input.value && input.value.trim() !== '') {
-        console.log(`[AutoFill Pro] Skipping input (${input.name || input.id}) - already has value: "${input.value}"`);
         return;
       }
 
@@ -73,14 +70,11 @@ async function fillForm() {
         const match = findMatchingField(iden, fields);
         if (match) {
           if (match.value) {
-            console.log(`[AutoFill Pro] Matching field found for "${iden}":`, match.label);
             input.value = match.value;
             input.dispatchEvent(new Event('input', { bubbles: true }));
             input.dispatchEvent(new Event('change', { bubbles: true }));
             filledCount++;
             break;
-          } else {
-            console.log(`[AutoFill Pro] Match found for "${iden}" (${match.label}), but value is EMPTY. Fill it in Settings.`);
           }
         }
       }
@@ -91,7 +85,6 @@ async function fillForm() {
     } else {
       showToast('No matching empty fields found.');
     }
-    console.log(`[AutoFill Pro] Finished. Total fields filled: ${filledCount}`);
   } catch (error) {
     console.error('[AutoFill Pro] Error during form fill:', error);
     showToast('Error filling form. Check console.', true);
@@ -100,7 +93,6 @@ async function fillForm() {
 
 // Listen for messages from background script
 browser.runtime.onMessage.addListener((message: { action: string }) => {
-  console.log('[AutoFill Pro] Message received:', message);
   if (message.action === 'fill_form') {
     fillForm();
   }
