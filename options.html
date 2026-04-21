@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AutoFill Pro - Options</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="app-container">
+    <header>
+      <h1>AutoFill Pro</h1>
+      <p class="subtitle">Quickly fill forms with your prepared data.</p>
+    </header>
+
+    <main>
+      <section class="section">
+        <div class="section-header">
+          <h2>Data Fields</h2>
+          <button id="add-field-btn" class="btn btn-secondary">Add Field</button>
+        </div>
+        <div id="fields-list" class="fields-list">
+          <!-- Fields will be injected here -->
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="section-header">
+          <h2>Presets</h2>
+        </div>
+        <div class="presets-grid">
+          <button id="load-registration-btn" class="btn btn-outline">Load Registration Presets</button>
+          <button id="load-job-btn" class="btn btn-outline">Load Job Vacancy Presets</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <button id="save-btn" class="btn btn-primary">Save Changes</button>
+      <span id="status-msg" class="status-msg"></span>
+    </footer>
+  </div>
+  <script type="module" src="./src/options/options.ts"></script>
+</body>
+</html>
