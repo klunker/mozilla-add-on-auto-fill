@@ -29,11 +29,11 @@ function renderFields() {
         <label>Value</label>
         <input type="text" value="${field.value}" data-index="${index}" data-prop="value" placeholder="Value to fill">
       </div>
-      <div class="field-input-group">
+      <button class="btn btn-danger remove-btn" data-index="${index}">Delete</button>
+      <div class="field-input-group full-width">
         <label>Aliases (comma separated)</label>
         <input type="text" value="${field.aliases.join(', ')}" data-index="${index}" data-prop="aliases" placeholder="e.g. fname, first_name">
       </div>
-      <button class="btn btn-danger remove-btn" data-index="${index}">Delete</button>
     `;
     fieldsList.appendChild(item);
   });

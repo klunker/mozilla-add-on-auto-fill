@@ -13,17 +13,17 @@ export const REGISTRATION_PRESETS: FieldPreset[] = [
   {
     label: "First Name",
     value: "",
-    aliases: ["first_name", "firstname", "fname", "f_name", "first", "given-name", "name"]
+    aliases: ["first_name", "firstname", "firstName", "fname", "f_name", "first", "given-name", "name"]
   },
   {
     label: "Last Name",
     value: "",
-    aliases: ["last_name", "lastname", "lname", "l_name", "last", "surname", "family-name"]
+    aliases: ["last_name", "lastname", "lastName", "lname", "l_name", "last", "surname", "family-name"]
   },
   {
     label: "Full Name",
     value: "",
-    aliases: ["full_name", "fullname", "name", "display_name", "username"]
+    aliases: ["full_name", "fullname", "fullName", "name", "display_name", "username"]
   },
   {
     label: "Password",
