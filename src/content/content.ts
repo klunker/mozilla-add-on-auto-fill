@@ -98,8 +98,6 @@ async function fillForm() {
   }
 }
 
-console.log('[AutoFill Pro] Content script loaded and active.');
-
 // Listen for messages from background script
 browser.runtime.onMessage.addListener((message: { action: string }) => {
   console.log('[AutoFill Pro] Message received:', message);
