@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build && esbuild src/background/background.ts --bundle --outfile=dist/background.js --platform=browser && esbuild src/content/content.ts --bundle --outfile=dist/content.js --platform=browser",
+    "build": "vite build && npx -y esbuild src/background/background.ts --bundle --outfile=dist/background.js --platform=browser && npx -y esbuild src/content/content.ts --bundle --outfile=dist/content.js --platform=browser",
     "preview": "vite preview",
     "test": "vitest",
     "web-ext:run": "web-ext run -s dist"
@@ -13,12 +13,12 @@
   "devDependencies": {
     "@types/chrome": "^0.1.40",
     "@types/jsdom": "^28.0.1",
-    "@types/webextension-polyfill": "^0.10.0",
+    "@types/webextension-polyfill": "^0.10.7",
     "jsdom": "^29.0.2",
-    "typescript": "^5.0.0",
-    "vite": "^5.0.0",
-    "vitest": "^1.0.0",
-    "web-ext": "^8.0.0",
+    "typescript": "^5.9.3",
+    "vite": "^8.0.9",
+    "vitest": "^4.1.5",
+    "web-ext": "^10.1.0",
     "webextension-polyfill": "^0.10.0"
   }
 }

@@ -71,13 +71,17 @@ async function fillForm() {
 
       for (const iden of identifiers) {
         const match = findMatchingField(iden, fields);
-        if (match && match.value) {
-          console.log(`[AutoFill Pro] Matching field found for "${iden}":`, match.label);
-          input.value = match.value;
-          input.dispatchEvent(new Event('input', { bubbles: true }));
-          input.dispatchEvent(new Event('change', { bubbles: true }));
-          filledCount++;
-          break;
+        if (match) {
+          if (match.value) {
+            console.log(`[AutoFill Pro] Matching field found for "${iden}":`, match.label);
+            input.value = match.value;
+            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(new Event('change', { bubbles: true }));
+            filledCount++;
+            break;
+          } else {
+            console.log(`[AutoFill Pro] Match found for "${iden}" (${match.label}), but value is EMPTY. Fill it in Settings.`);
+          }
         }
       }
     });
