@@ -20,21 +20,52 @@ function renderFields() {
   currentData.fields.forEach((field, index) => {
     const item = document.createElement('div');
     item.className = 'field-item';
-    item.innerHTML = `
-      <div class="field-input-group">
-        <label>Label</label>
-        <input type="text" value="${field.label}" data-index="${index}" data-prop="label">
-      </div>
-      <div class="field-input-group">
-        <label>Value</label>
-        <input type="text" value="${field.value}" data-index="${index}" data-prop="value" placeholder="Value to fill">
-      </div>
-      <button class="btn btn-danger remove-btn" data-index="${index}">Delete</button>
-      <div class="field-input-group full-width">
-        <label>Aliases (comma separated)</label>
-        <input type="text" value="${field.aliases.join(', ')}" data-index="${index}" data-prop="aliases" placeholder="e.g. fname, first_name">
-      </div>
-    `;
+
+    // Label Group
+    const labelGroup = document.createElement('div');
+    labelGroup.className = 'field-input-group';
+    const labelTag = document.createElement('label');
+    labelTag.textContent = 'Label';
+    const labelInput = document.createElement('input');
+    labelInput.type = 'text';
+    labelInput.value = field.label;
+    labelInput.dataset.index = index.toString();
+    labelInput.dataset.prop = 'label';
+    labelGroup.append(labelTag, labelInput);
+
+    // Value Group
+    const valueGroup = document.createElement('div');
+    valueGroup.className = 'field-input-group';
+    const valueTag = document.createElement('label');
+    valueTag.textContent = 'Value';
+    const valueInput = document.createElement('input');
+    valueInput.type = 'text';
+    valueInput.value = field.value;
+    valueInput.placeholder = 'Value to fill';
+    valueInput.dataset.index = index.toString();
+    valueInput.dataset.prop = 'value';
+    valueGroup.append(valueTag, valueInput);
+
+    // Delete Button
+    const deleteBtn = document.createElement('button');
+    deleteBtn.className = 'btn btn-danger remove-btn';
+    deleteBtn.textContent = 'Delete';
+    deleteBtn.dataset.index = index.toString();
+
+    // Aliases Group (Full Width)
+    const aliasesGroup = document.createElement('div');
+    aliasesGroup.className = 'field-input-group full-width';
+    const aliasesTag = document.createElement('label');
+    aliasesTag.textContent = 'Aliases (comma separated)';
+    const aliasesInput = document.createElement('input');
+    aliasesInput.type = 'text';
+    aliasesInput.value = field.aliases.join(', ');
+    aliasesInput.placeholder = 'e.g. fname, first_name';
+    aliasesInput.dataset.index = index.toString();
+    aliasesInput.dataset.prop = 'aliases';
+    aliasesGroup.append(aliasesTag, aliasesInput);
+
+    item.append(labelGroup, valueGroup, deleteBtn, aliasesGroup);
     fieldsList.appendChild(item);
   });
 }
