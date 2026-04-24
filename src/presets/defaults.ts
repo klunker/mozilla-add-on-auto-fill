@@ -8,7 +8,7 @@ export const REGISTRATION_PRESETS: FieldPreset[] = [
   {
     label: "Email",
     value: "",
-    aliases: ["email", "e-mail", "user_email", "login", "user_id", "email_address"]
+    aliases: ["email", "e-mail", "user_email", "login", "user_id", "email_address", "career_application_form_email"]
   },
   {
     label: "First Name",
@@ -23,7 +23,7 @@ export const REGISTRATION_PRESETS: FieldPreset[] = [
   {
     label: "Full Name",
     value: "",
-    aliases: ["full_name", "fullname", "fullName", "name", "display_name", "username"]
+    aliases: ["full_name", "fullname", "fullName", "name", "display_name", "username","career_application_form_full_name"]
   },
   {
     label: "Password",
@@ -34,6 +34,11 @@ export const REGISTRATION_PRESETS: FieldPreset[] = [
     label: "Phone",
     value: "",
     aliases: ["phone", "telephone", "mobile", "tel", "cell", "phone_number", "contact_number"]
+  },
+  {
+    label: "Telegram",
+    value: "",
+    aliases: ["career_application_form_telegram_username,telegram"],
   }
 ];
 
