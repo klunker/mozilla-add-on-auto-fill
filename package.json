@@ -1,6 +1,6 @@
 {
   "name": "autofill-firefox-extension",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Minimalist Firefox extension for form autofilling with alias support.",
   "type": "module",
   "scripts": {
